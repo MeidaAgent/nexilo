@@ -144,7 +144,7 @@ async function fetchAIResponse(prompt, modelKey) {
   const actualModel = apiModelMapping[modelKey] || 'gpt-6-astra';
   
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  const timeoutId = setTimeout(() => controller.abort(), 25000);
   
   try {
     const res = await fetch('/api/chat', {
@@ -462,7 +462,7 @@ async function runStudioStream() {
 
  let fullResponse = await fetchAIResponse(promptText, modelKey);
  if (!fullResponse) {
-   fullResponse = modelResponses[modelKey] || modelResponses.gpt6;
+   fullResponse = "Network Error: Unable to reach the decentralized GPU mesh.\n\nNote: If you are viewing this on a static host like GitHub Pages, the browser's CORS security policy blocks direct API requests. To interact with the real AI network, please run the included backend proxy ('python server.py') locally.";
  }
 
  const responseBody = assistantMsg.querySelector('.msg-body');

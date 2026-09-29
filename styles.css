@@ -1957,6 +1957,7 @@ body {
  font-size: 14px;
  line-height: 1.6;
  color: #e2e8f0;
+ white-space: pre-wrap;
 }
 
 .chat-message.assistant .msg-body {
