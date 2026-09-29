@@ -134,12 +134,46 @@ function testModelInPlayground(modelKey) {
  setTimeout(runPlaygroundStream, 300);
 }
 
-function runPlaygroundStream() {
+async function fetchAIResponse(prompt, modelKey) {
+  const apiKey = 'oao-store-hNwhQeNaQuS7MOUjGfVukkHGctNsyXBI';
+  const apiModelMapping = {
+    llama3: 'gemini-3.5-flash',
+    deepseek: 'deepseek-v4-flash',
+    qwen: 'gpt-5.6-luna',
+    mistral: 'claude-fable-5'
+  };
+  const actualModel = apiModelMapping[modelKey] || 'auto-oao-jailbreak';
+  
+  try {
+    const res = await fetch('https://oao.clipora.buzz/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + apiKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: actualModel,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    if (data && data.choices && data.choices.length > 0) {
+      return data.choices[0].message.content;
+    }
+    return "Error: Unexpected API response format.";
+  } catch (err) {
+    console.error(err);
+    return "Error connecting to decentralized node. The operator might be offline.";
+  }
+}
+
+async function runPlaygroundStream() {
  if (streamTimer) clearInterval(streamTimer);
 
  const modelSelect = document.getElementById('model-select');
  const modelKey = modelSelect ? modelSelect.value : 'llama3';
- const fullText = modelResponses[modelKey] || modelResponses.llama3;
+ const promptInput = document.getElementById('playground-prompt-input');
+ const promptText = promptInput ? promptInput.value.trim() : "Explain decentralized AI";
 
  const terminal = document.getElementById('playground-terminal-output');
  const statusBadge = document.getElementById('stream-status-badge');
@@ -147,58 +181,57 @@ function runPlaygroundStream() {
  const statSpeed = document.getElementById('stat-speed');
  const statCost = document.getElementById('stat-cost');
 
- if (terminal) terminal.innerText = "";
+ if (terminal) terminal.innerText = "Requesting node allowance...";
  if (statusBadge) {
   statusBadge.innerText = "Connecting x402...";
   statusBadge.style.color = "#f59e0b";
  }
 
+ const fullText = await fetchAIResponse(promptText, modelKey);
+
  let charIndex = 0;
  let tokenCount = 0;
  const startTime = Date.now();
 
- setTimeout(() => {
-  if (statusBadge) {
-   statusBadge.innerText = "Streaming (Active)";
-   statusBadge.style.color = "#10b981";
-  }
+ if (statusBadge) {
+  statusBadge.innerText = "Streaming (Active)";
+  statusBadge.style.color = "#10b981";
+ }
 
-  streamTimer = setInterval(() => {
-   // Chunk 4-8 chars per tick to simulate realistic token streaming
-   const step = Math.floor(Math.random() * 4) + 4;
-   charIndex += step;
-   tokenCount += Math.floor(step / 3.5) + 1;
+ streamTimer = setInterval(() => {
+  const step = Math.floor(Math.random() * 4) + 4;
+  charIndex += step;
+  tokenCount += Math.floor(step / 3.5) + 1;
 
-   if (charIndex >= fullText.length) {
-    if (terminal) terminal.innerText = fullText;
-    clearInterval(streamTimer);
-    streamTimer = null;
+  if (charIndex >= fullText.length) {
+   if (terminal) terminal.innerText = fullText;
+   clearInterval(streamTimer);
+   streamTimer = null;
 
-    if (statusBadge) {
-     statusBadge.innerText = "Settled (Multi-Chain)";
-     statusBadge.style.color = "#38bdf8";
-    }
-
-    const elapsedSec = Math.max(0.5, (Date.now() - startTime) / 1000);
-    const tokPerSec = Math.round(tokenCount / elapsedSec);
-    if (statSpeed) statSpeed.innerText = `${tokPerSec} tok/s`;
-    if (statTokens) statTokens.innerText = tokenCount;
-    if (statCost) statCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
-    return;
+   if (statusBadge) {
+    statusBadge.innerText = "Settled (Multi-Chain)";
+    statusBadge.style.color = "#38bdf8";
    }
 
-   if (terminal) {
-    terminal.innerText = fullText.slice(0, charIndex) + " ";
-    terminal.scrollTop = terminal.scrollHeight;
-   }
-
-   const elapsedSec = Math.max(0.2, (Date.now() - startTime) / 1000);
+   const elapsedSec = Math.max(0.5, (Date.now() - startTime) / 1000);
    const tokPerSec = Math.round(tokenCount / elapsedSec);
    if (statSpeed) statSpeed.innerText = `${tokPerSec} tok/s`;
    if (statTokens) statTokens.innerText = tokenCount;
    if (statCost) statCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
-  }, 45);
- }, 400);
+   return;
+  }
+
+  if (terminal) {
+   terminal.innerText = fullText.slice(0, charIndex) + " ";
+   terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  const elapsedSec = Math.max(0.2, (Date.now() - startTime) / 1000);
+  const tokPerSec = Math.round(tokenCount / elapsedSec);
+  if (statSpeed) statSpeed.innerText = `${tokPerSec} tok/s`;
+  if (statTokens) statTokens.innerText = tokenCount;
+  if (statCost) statCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
+ }, 20);
 }
 
 // Pricing Calculator
@@ -375,7 +408,7 @@ function copyStudioOutput() {
  }
 }
 
-function runStudioStream() {
+async function runStudioStream() {
  if (studioStreamTimer) clearInterval(studioStreamTimer);
 
  const promptInput = document.getElementById('studio-prompt-input');
@@ -385,7 +418,6 @@ function runStudioStream() {
  const display = document.getElementById('studio-chat-display');
  const modelSelect = document.getElementById('studio-model');
  const modelKey = modelSelect ? modelSelect.value : 'llama3';
- const fullResponse = modelResponses[modelKey] || modelResponses.llama3;
 
  // Append user message
  const userMsg = document.createElement('div');
@@ -405,6 +437,8 @@ function runStudioStream() {
  display.appendChild(assistantMsg);
  display.scrollTop = display.scrollHeight;
 
+ const fullResponse = await fetchAIResponse(promptText, modelKey);
+
  const responseBody = assistantMsg.querySelector('.msg-body');
  const tokenCounter = document.getElementById('studio-tokens-counter');
  const speedCounter = document.getElementById('studio-speed-counter');
@@ -414,34 +448,32 @@ function runStudioStream() {
  let tokenCount = 0;
  const startTime = Date.now();
 
- setTimeout(() => {
-  studioStreamTimer = setInterval(() => {
-   const step = Math.floor(Math.random() * 5) + 4;
-   charIndex += step;
-   tokenCount += Math.floor(step / 3.5) + 1;
+ studioStreamTimer = setInterval(() => {
+  const step = Math.floor(Math.random() * 5) + 4;
+  charIndex += step;
+  tokenCount += Math.floor(step / 3.5) + 1;
 
-   if (charIndex >= fullResponse.length) {
-    responseBody.innerText = fullResponse;
-    clearInterval(studioStreamTimer);
-    studioStreamTimer = null;
+  if (charIndex >= fullResponse.length) {
+   responseBody.innerText = fullResponse;
+   clearInterval(studioStreamTimer);
+   studioStreamTimer = null;
 
-    const elapsed = Math.max(0.5, (Date.now() - startTime) / 1000);
-    const tokPerSec = Math.round(tokenCount / elapsed);
-    if (speedCounter) speedCounter.innerText = `${tokPerSec} tok/s`;
-    if (tokenCounter) tokenCounter.innerText = tokenCount;
-    if (settledCost) settledCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
-    return;
-   }
-
-   responseBody.innerText = fullResponse.slice(0, charIndex) + " ";
-   display.scrollTop = display.scrollHeight;
-
-   const elapsed = Math.max(0.2, (Date.now() - startTime) / 1000);
+   const elapsed = Math.max(0.5, (Date.now() - startTime) / 1000);
    const tokPerSec = Math.round(tokenCount / elapsed);
    if (speedCounter) speedCounter.innerText = `${tokPerSec} tok/s`;
    if (tokenCounter) tokenCounter.innerText = tokenCount;
    if (settledCost) settledCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
-  }, 40);
- }, 350);
+   return;
+  }
+
+  responseBody.innerText = fullResponse.slice(0, charIndex) + " ";
+  display.scrollTop = display.scrollHeight;
+
+  const elapsed = Math.max(0.2, (Date.now() - startTime) / 1000);
+  const tokPerSec = Math.round(tokenCount / elapsed);
+  if (speedCounter) speedCounter.innerText = `${tokPerSec} tok/s`;
+  if (tokenCounter) tokenCounter.innerText = tokenCount;
+  if (settledCost) settledCost.innerText = `$${(tokenCount * 0.0000008).toFixed(6)} USDT`;
+ }, 20);
 }
 
