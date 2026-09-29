@@ -135,7 +135,6 @@ function testModelInPlayground(modelKey) {
 }
 
 async function fetchAIResponse(prompt, modelKey) {
-  const apiKey = 'oao-store-hNwhQeNaQuS7MOUjGfVukkHGctNsyXBI';
   const apiModelMapping = {
     gpt6: 'gpt-6-astra',
     claude5: 'claude-opus-5.5',
@@ -145,10 +144,9 @@ async function fetchAIResponse(prompt, modelKey) {
   const actualModel = apiModelMapping[modelKey] || 'gpt-6-astra';
   
   try {
-    const res = await fetch('https://oao.clipora.buzz/v1/chat/completions', {
+    const res = await fetch('/api/chat', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + apiKey,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
