@@ -160,10 +160,10 @@ async function fetchAIResponse(prompt, modelKey) {
     if (data && data.choices && data.choices.length > 0) {
       return data.choices[0].message.content;
     }
-    return "Error: Unexpected API response format.";
+    return null;
   } catch (err) {
-    console.error(err);
-    return "Error connecting to decentralized node. The operator might be offline.";
+    console.error("API Fetch Error (Likely CORS):", err);
+    return null;
   }
 }
 
@@ -437,7 +437,10 @@ async function runStudioStream() {
  display.appendChild(assistantMsg);
  display.scrollTop = display.scrollHeight;
 
- const fullResponse = await fetchAIResponse(promptText, modelKey);
+ let fullResponse = await fetchAIResponse(promptText, modelKey);
+ if (!fullResponse) {
+   fullResponse = modelResponses[modelKey] || modelResponses.gpt6;
+ }
 
  const responseBody = assistantMsg.querySelector('.msg-body');
  const tokenCounter = document.getElementById('studio-tokens-counter');
