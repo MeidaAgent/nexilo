@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AI Studio & Playground — Nexilo Decentralized Inference</title>
+  <meta name="description" content="Test real-time streaming AI inference on open models with micro-metered x402 settlement." />
+  
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/playground.html" />
+  <meta property="og:title" content="AI Studio & Playground — Nexilo Decentralized Inference" />
+  <meta property="og:description" content="Test real-time streaming AI inference on open models with micro-metered x402 settlement." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Studio & Playground — Nexilo Decentralized Inference" />
+  <meta name="twitter:description" content="Test real-time streaming AI inference on open models with micro-metered x402 settlement." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page playground-page-body">
+  <div class="ambient-glow glow-top-right"></div>
+
+  <!-- Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="node.html" class="nav-link">Node</a>
+        <a href="playground.html" class="nav-link active">Playground</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="node.html" class="btn-run-node">Run a Node</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link active" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link" onclick="closeMobileMenu()">About</a>
+      <a href="node.html" class="btn-run-node mobile-btn" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <main class="playground-layout container">
+    <!-- Studio Sidebar Parameters -->
+    <aside class="playground-sidebar">
+      <h3 class="studio-heading">Inference Settings</h3>
+
+      <div class="studio-control">
+        <label for="studio-model">Model Selection</label>
+        <select id="studio-model" class="select-input full-width" onchange="switchStudioModel()">
+          <option value="llama3">Meta Llama 3.3 70B Instruct ($0.80 / 1M)</option>
+          <option value="deepseek">DeepSeek-V3 671B MoE ($0.40 / 1M)</option>
+          <option value="qwen">Qwen 2.5 72B Coder ($0.60 / 1M)</option>
+          <option value="mistral">Mistral Large 2 123B ($1.00 / 1M)</option>
+        </select>
+      </div>
+
+      <div class="studio-control">
+        <label for="studio-system-prompt">System Prompt</label>
+        <textarea id="studio-system-prompt" class="textarea-input" rows="3">You are a high-speed reasoning model executing on Nexilo decentralized GPU nodes.</textarea>
+      </div>
+
+      <div class="studio-control">
+        <div class="label-with-val">
+          <label for="studio-temperature">Temperature</label>
+          <span id="temp-val" class="text-cyan">0.7</span>
+        </div>
+        <input type="range" id="studio-temperature" min="0.0" max="1.5" step="0.1" value="0.7" class="range-slider" oninput="document.getElementById('temp-val').innerText = this.value" />
+      </div>
+
+      <div class="studio-control">
+        <div class="label-with-val">
+          <label for="studio-max-tokens">Max Tokens</label>
+          <span id="tokens-val" class="text-cyan">2048</span>
+        </div>
+        <input type="range" id="studio-max-tokens" min="256" max="4096" step="256" value="2048" class="range-slider" oninput="document.getElementById('tokens-val').innerText = this.value" />
+      </div>
+
+      <div class="studio-control">
+        <div class="label-with-val">
+          <label for="studio-ceiling">x402 Spending Ceiling</label>
+          <span id="ceiling-val" class="text-cyan">$2.00 USDT</span>
+        </div>
+        <select id="studio-ceiling" class="select-input full-width">
+          <option value="0.50">$0.50 USDT (Test Quota)</option>
+          <option value="2.00" selected>$2.00 USDT (Default Ceiling)</option>
+          <option value="10.00">$10.00 USDT (High Volume)</option>
+        </select>
+      </div>
+
+      <div class="studio-control">
+        <label>Network Routing</label>
+        <div class="telemetry-pill">
+          <span class="dot-green"></span>
+          <span>Lowest Latency Mesh (Automated)</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Studio Chat / Streaming Screen -->
+    <div class="playground-stage">
+      <div class="stage-header">
+        <div class="stage-model-info">
+          <span class="model-badge" id="active-model-title">Meta Llama 3.3 70B Instruct</span>
+          <span class="latency-indicator" id="latency-val">TTFT: ~140ms</span>
+        </div>
+        <div class="stage-actions">
+          <button class="action-btn" onclick="clearStudioChat()">Clear</button>
+          <button class="action-btn" onclick="copyStudioOutput()">Copy Response</button>
+        </div>
+      </div>
+
+      <!-- Messages / Streaming Output -->
+      <div class="studio-chat-display" id="studio-chat-display">
+        <div class="chat-message assistant">
+          <div class="msg-avatar">
+            <img src="nexilo_logo_transparent.png" alt="Nexilo" />
+          </div>
+          <div class="msg-body" id="studio-output-text">
+Welcome to the Nexilo AI Studio. Enter a prompt below or pick a preset to stream tokens directly from community-hosted GPU nodes with real-time x402 payment settlement on any chain.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick suggestions -->
+      <div class="prompt-suggestions">
+        <span class="suggestion-chip" onclick="setStudioPrompt('Write a smart contract in Solidity for decentralized token streaming escrow.')">
+          Solidity streaming escrow
+        </span>
+        <span class="suggestion-chip" onclick="setStudioPrompt('Explain the architectural advantages of decentralized AI inference vs centralized hyperscalers.')">
+          Decentralized vs AWS/OpenAI
+        </span>
+        <span class="suggestion-chip" onclick="setStudioPrompt('How does the x402 protocol verify delivered tokens before releasing USDT?')">
+          x402 Verification mechanics
+        </span>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="studio-input-bar">
+        <input type="text" id="studio-prompt-input" class="text-input" placeholder="Ask anything to stream from decentralized GPU nodes..." value="Explain the architectural advantages of decentralized AI inference vs centralized hyperscalers." />
+        <button class="btn-primary" id="btn-studio-run" onclick="runStudioStream()">
+          <span>Run</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Telemetry Bar -->
+      <div class="studio-telemetry-bar">
+        <div class="tele-item">
+          <span class="tele-label">Tokens:</span>
+          <span class="tele-val" id="studio-tokens-counter">0</span>
+        </div>
+        <div class="tele-item">
+          <span class="tele-label">Speed:</span>
+          <span class="tele-val text-cyan" id="studio-speed-counter">0 tok/s</span>
+        </div>
+        <div class="tele-item">
+          <span class="tele-label">Settled:</span>
+          <span class="tele-val text-cyan" id="studio-settled-cost">$0.000000 USDT</span>
+        </div>
+        <div class="tele-item">
+          <span class="tele-label">Node:</span>
+          <span class="tele-val" id="studio-node-id">node-fra-4090 #84</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

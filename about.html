@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>About & Mission — Nexilo Decentralized AI</title>
+  <meta name="description" content="Discover how Nexilo is building an open, permissionless, decentralized AI inference network powered by community GPUs." />
+  
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/about.html" />
+  <meta property="og:title" content="About & Mission — Nexilo Decentralized AI" />
+  <meta property="og:description" content="Discover how Nexilo is building an open, permissionless, decentralized AI inference network powered by community GPUs." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About & Mission — Nexilo Decentralized AI" />
+  <meta name="twitter:description" content="Discover how Nexilo is building an open, permissionless, decentralized AI inference network powered by community GPUs." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+  <div class="ambient-glow glow-top-right"></div>
+
+  <!-- Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="node.html" class="nav-link">Node</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="node.html" class="btn-run-node">Run a Node</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link active" onclick="closeMobileMenu()">About</a>
+      <a href="node.html" class="btn-run-node mobile-btn" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <main class="page-content container">
+    <!-- Hero Section -->
+    <section class="inner-hero-section">
+      <div class="badge-status"><span class="pulse-dot"></span> The Nexilo Manifesto &bull; Decentralized AI Inference</div>
+      <h1 class="inner-hero-title">Artificial Intelligence Belongs To The Open Commons</h1>
+      <p class="inner-hero-lead">
+        We are building the open compute layer of the internet. A peer-to-peer network where anyone with a GPU can serve open-source intelligence, and anyone with a wallet can access it without censorship, gatekeepers, or identity surveillance.
+      </p>
+    </section>
+
+    <!-- Core Pillars Grid -->
+    <section class="docs-section">
+      <h2 class="section-title">Architectural Principles</h2>
+      <div class="cards-container">
+        <div class="feature-card">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Censorship Resistant</h3>
+          <p class="card-body">
+            No single company controls access to model weights or inference pipelines. Requests cannot be unilaterally banned or throttled.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Atomic x402 Settlement</h3>
+          <p class="card-body">
+            Micro-billing executed on any chain. You pay per token delivered over HTTP 402 with a $2 hard spending ceiling per request.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+          </div>
+          <h3 class="card-title">90% Operator Equity</h3>
+          <p class="card-body">
+            Traditional cloud platforms take massive margins. Nexilo delivers 90% of all token settlement revenue straight to GPU node runners.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap 2026 -->
+    <section class="docs-section roadmap-section">
+      <h2 class="section-title">2026 Engineering Roadmap</h2>
+      <div class="roadmap-timeline">
+        <div class="roadmap-item completed">
+          <div class="roadmap-badge">Q1 2026 &bull; Completed</div>
+          <h4 class="roadmap-title">Mainnet Genesis & x402 Protocol Rollout</h4>
+          <p class="roadmap-desc">Launch of the initial 1,000 GPU node mesh, multi-chain atomic settlement contracts, and Python/TypeScript SDKs.</p>
+        </div>
+
+        <div class="roadmap-item in-progress">
+          <div class="roadmap-badge in-progress">Q2 2026 &bull; In Development</div>
+          <h4 class="roadmap-title">On-the-Fly LoRA Adapter Routing</h4>
+          <p class="roadmap-desc">Dynamic loading of custom fine-tuned LoRA weights onto base open models across active node clusters with sub-second switching.</p>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-badge">Q3 2026 &bull; Upcoming</div>
+          <h4 class="roadmap-title">Decentralized Speculative Decoding</h4>
+          <p class="roadmap-desc">Draft model speculation distributed across edge consumer GPUs (RTX 4070/4080) coupled with datacenter verifiers to 3x token speeds.</p>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-badge">Q4 2026 &bull; Upcoming</div>
+          <h4 class="roadmap-title">Apple Silicon & Edge Compute Integration</h4>
+          <p class="roadmap-desc">Enable unified memory Apple Silicon M-series chips to join the mesh as high-context memory pool nodes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Community CTA -->
+    <section class="community-cta-section">
+      <div class="calc-card text-center">
+        <h2 class="calc-heading">Build the Open AI Web with Us</h2>
+        <p class="calc-sub">Join thousands of machine learning engineers, GPU node operators, and Web3 developers in our active community channels.</p>
+        <div class="cta-buttons-row">
+          <a href="https://t.me" target="_blank" rel="noopener" class="btn-primary">Join Telegram</a>
+          <a href="https://discord.com" target="_blank" rel="noopener" class="btn-secondary">Join Discord</a>
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn-secondary">GitHub Repo</a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Our Story -->
+    <section class="feature-split-section container">
+      <div class="feature-split-row">
+        <div class="feature-split-content">
+          <h2 class="feature-split-title">Why We Built Nexilo</h2>
+          <p class="feature-split-desc">
+            In 2024, it became clear that the future of artificial intelligence was being centralized into the hands of a few tech giants. Open-source models were improving rapidly, but the infrastructure to run them remained locked behind expensive, proprietary cloud APIs.
+          </p>
+          <p class="feature-split-desc">
+            We started Nexilo to break that oligopoly. We envisioned a world where idle GPUs in homes and datacenters around the globe could be pooled together into an unstoppable, permissionless inference engine. By leveraging the x402 protocol, we aligned the incentives: developers get cheaper, reliable AI, and hardware owners get fair compensation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Team -->
+    <section class="docs-section container text-center">
+      <div class="feature-split-badge">Decentralized Stewardship</div>
+      <h2 class="section-title">Core Contributors</h2>
+      <p class="feature-split-desc" style="max-width: 650px; margin: 0 auto 3rem auto; color: #94a3b8;">
+        Nexilo is built and maintained by a global collective of distributed systems engineers, ML researchers, and cryptographic protocol designers committed to open-source intelligence.
+      </p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar-monogram" style="background: linear-gradient(135deg, #8b5cf6, #06b6d4);">AV</div>
+          <div class="team-name">Alex V.</div>
+          <div class="team-role">Protocol Architecture</div>
+          <span class="team-badge">x402 Spec Lead</span>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar-monogram" style="background: linear-gradient(135deg, #0284c7, #3b82f6);">SK</div>
+          <div class="team-name">Sarah K.</div>
+          <div class="team-role">Distributed Inference</div>
+          <span class="team-badge">vLLM &bull; FlashAttention</span>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar-monogram" style="background: linear-gradient(135deg, #10b981, #06b6d4);">JM</div>
+          <div class="team-name">Jay M.</div>
+          <div class="team-role">Node Economics &amp; Payouts</div>
+          <span class="team-badge">Smart Contract Eng</span>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar-monogram" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">LT</div>
+          <div class="team-name">Lin T.</div>
+          <div class="team-role">Mesh Networking</div>
+          <span class="team-badge">libp2p &bull; Routing</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Nexilo Network. Decentralized AI inference for everyone.</p>
+        <div class="social-share-preview-info">
+          <span class="badge-status"><span class="pulse-dot"></span> Network Live &bull; 1,248 Nodes Online</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

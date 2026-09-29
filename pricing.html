@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Pricing — Nexilo Decentralized AI Inference</title>
+  <meta name="description" content="Transparent, token-by-token pricing in USDT. Zero monthly minimums. 90% direct settlement to GPU node operators." />
+  
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/pricing.html" />
+  <meta property="og:title" content="Pricing — Nexilo Decentralized AI Inference" />
+  <meta property="og:description" content="Transparent, token-by-token pricing in USDT. Zero monthly minimums. 90% direct settlement to GPU node operators." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pricing — Nexilo Decentralized AI Inference" />
+  <meta name="twitter:description" content="Transparent, token-by-token pricing in USDT. Zero monthly minimums. 90% direct settlement to GPU node operators." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+  <div class="ambient-glow glow-top-right"></div>
+
+  <!-- Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="node.html" class="nav-link">Node</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="pricing.html" class="nav-link active">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="node.html" class="btn-run-node">Run a Node</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link active" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link" onclick="closeMobileMenu()">About</a>
+      <a href="node.html" class="btn-run-node mobile-btn" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <main class="page-content container">
+    <!-- Hero Section -->
+    <section class="inner-hero-section">
+      <div class="badge-status"><span class="pulse-dot"></span> x402 Micro-Billing &bull; $2 Hard Ceiling Per Request</div>
+      <h1 class="inner-hero-title">Pay Only For Delivered Tokens. Zero Subscriptions.</h1>
+      <p class="inner-hero-lead">
+        Transparent on-chain settlement on any chain. When your stream finishes, you only pay for actual tokens generated. If a node drops early, you never pay for unstreamed tokens.
+      </p>
+    </section>
+
+    <!-- Pricing Table -->
+    <section class="docs-section">
+      <h2 class="section-title">Open Weights Model Pricing Matrix</h2>
+      <div class="models-table-wrapper">
+        <table class="models-table">
+          <thead>
+            <tr>
+              <th>Model Name</th>
+              <th>Context</th>
+              <th>Input / 1M</th>
+              <th>Output / 1M</th>
+              <th>Operator Split</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Meta Llama 3.3 70B</strong><br><span class="muted">State of the art open reasoning</span></td>
+              <td>128,000</td>
+              <td>$0.40 USDT</td>
+              <td class="text-cyan">$0.80 USDT</td>
+              <td>90% ($0.72)</td>
+              <td><a href="playground.html" class="table-btn">Test in Studio</a></td>
+            </tr>
+            <tr>
+              <td><strong>DeepSeek-V3 671B MoE</strong><br><span class="muted">Extreme efficiency mixture-of-experts</span></td>
+              <td>64,000</td>
+              <td>$0.20 USDT</td>
+              <td class="text-cyan">$0.40 USDT</td>
+              <td>90% ($0.36)</td>
+              <td><a href="playground.html" class="table-btn">Test in Studio</a></td>
+            </tr>
+            <tr>
+              <td><strong>Qwen 2.5 72B Coder</strong><br><span class="muted">High-precision code synthesis</span></td>
+              <td>128,000</td>
+              <td>$0.30 USDT</td>
+              <td class="text-cyan">$0.60 USDT</td>
+              <td>90% ($0.54)</td>
+              <td><a href="playground.html" class="table-btn">Test in Studio</a></td>
+            </tr>
+            <tr>
+              <td><strong>Mistral Large 2 123B</strong><br><span class="muted">Multilingual enterprise reasoning</span></td>
+              <td>128,000</td>
+              <td>$0.50 USDT</td>
+              <td class="text-cyan">$1.00 USDT</td>
+              <td>90% ($0.90)</td>
+              <td><a href="playground.html" class="table-btn">Test in Studio</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Interactive Cost Savings Calculator -->
+    <section class="calculator-section">
+      <div class="calc-card">
+        <h2 class="calc-heading">Calculate Your Savings vs Centralized Cloud</h2>
+        <p class="calc-sub">See how much you save moving your AI workloads from OpenAI, AWS Bedrock, or Google Vertex AI to Nexilo's decentralized mesh.</p>
+
+        <div class="pricing-calc-box">
+          <label for="token-slider-page">Monthly Token Volume: <strong id="page-token-display" class="slider-val">25,000,000</strong> tokens</label>
+          <input type="range" id="token-slider-page" min="1000000" max="200000000" step="1000000" value="25000000" oninput="updatePagePricingCalc()" class="range-slider" />
+          
+          <div class="price-comparison-grid">
+            <div class="comparison-card nexilo-card">
+              <span class="compare-badge">Nexilo Decentralized</span>
+              <div class="compare-price" id="page-nexilo-cost">$15.00</div>
+              <p class="compare-sub">Pay per token in USDT. Verified on-chain.</p>
+            </div>
+            <div class="comparison-card legacy-card">
+              <span class="compare-badge muted">Centralized APIs (AWS / OpenAI)</span>
+              <div class="compare-price" id="page-legacy-cost">$70.00</div>
+              <p class="compare-sub">Rate limits, enterprise contracts, opaque pricing.</p>
+            </div>
+          </div>
+          <div class="savings-alert">
+            Estimated monthly savings: <strong id="page-savings-amount" class="text-cyan">$55.00 / mo</strong> (~78% lower costs).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="docs-section faq-section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4 class="faq-q">What is the $2 hard ceiling per request?</h4>
+          <p class="faq-a">
+            Before an inference request streams, your client signs an authorization allowance capped at a maximum of $2.00 USDT. Under no circumstances can a request exceed this amount, preventing runaway loops or unexpected charges.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">What happens if a node drops out during generation?</h4>
+          <p class="faq-a">
+            Because x402 tracks token streaming chunk-by-chunk with cryptographic hashes, you only settle the tokens you actually received. The orchestrator re-routes the remaining prompt to another node automatically.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">Do node operators ever see or log my prompt?</h4>
+          <p class="faq-a">
+            Prompts are streamed in ephemeral memory buffers directly to the GPU execution context. Nexilo nodes run in sandboxed enclave containers with strict logging prohibitions enforced by consensus slashing.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">How does payout settlement occur?</h4>
+          <p class="faq-a">
+            Settlement proofs are batched and posted atomically on any chain. 90% of the token fee is sent directly to the node operator's self-custodial wallet with zero middlemen withholding funds.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Deep Dive Features -->
+    <section class="feature-split-section container">
+      <div class="feature-split-row">
+        <div class="feature-split-content">
+          <h2 class="feature-split-title">Zero Minimums. Ever.</h2>
+          <p class="feature-split-desc">
+            Whether you run a single prototype request or stream millions of tokens in production, you pay the exact same transparent rate. We don't believe in forcing developers into expensive monthly tiers or enterprise contracts just to get fair pricing.
+          </p>
+        </div>
+        <div class="feature-split-content">
+          <h2 class="feature-split-title">Enterprise Scale Quotas</h2>
+          <p class="feature-split-desc">
+            Scaling up? Our decentralized mesh can handle thousands of concurrent requests. You can adjust your x402 spending ceiling on the fly. If you need dedicated node clusters or specialized SLA routing, contact our community validators for customized network routing profiles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Nexilo Network. Decentralized AI inference for everyone.</p>
+        <div class="social-share-preview-info">
+          <span class="badge-status"><span class="pulse-dot"></span> Network Live &bull; 1,248 Nodes Online</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

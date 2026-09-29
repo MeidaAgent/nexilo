@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Nexilo — Decentralized AI Inference for Everyone</title>
+  <meta name="title" content="Nexilo — Decentralized AI Inference for Everyone" />
+  <meta name="description" content="Open models. Pay per token in USDT. Powered by a global network of GPU nodes. No accounts, no API keys, no lock-in." />
+  <meta name="keywords" content="Nexilo, decentralized AI, AI inference, GPU nodes, x402, web3 AI, USDT payment, open models" />
+  <meta name="author" content="Nexilo Network" />
+  <meta name="theme-color" content="#0066ff" />
+  
+  <!-- Open Graph / Facebook / Telegram / WhatsApp / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/" />
+  <meta property="og:title" content="Nexilo — Decentralized AI Inference for Everyone" />
+  <meta property="og:description" content="Open models. Pay per token in USDT. Powered by a global network of GPU nodes. No accounts, no API keys, no lock-in." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:secure_url" content="banner_nexilo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  <meta property="og:image:alt" content="Nexilo Decentralized AI Inference" />
+  <meta property="og:site_name" content="Nexilo" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://nexilo.network/" />
+  <meta name="twitter:title" content="Nexilo — Decentralized AI Inference for Everyone" />
+  <meta name="twitter:description" content="Open models. Pay per token in USDT. Powered by a global network of GPU nodes. No accounts, no API keys, no lock-in." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+  <meta name="twitter:image:alt" content="Nexilo Decentralized AI Inference" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+  <link rel="image_src" href="banner_nexilo.png" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background glow layers -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-center-hero"></div>
+
+  <!-- Header / Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <!-- Desktop Nav Items -->
+      <nav class="nav-links" id="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active" id="nav-home">Home</a>
+        <a href="docs.html" class="nav-link" id="nav-docs">Docs</a>
+        <a href="node.html" class="nav-link" id="nav-node">Node</a>
+        <a href="playground.html" class="nav-link" id="nav-playground">Playground</a>
+        <a href="pricing.html" class="nav-link" id="nav-pricing">Pricing</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="nav-actions">
+        <a href="node.html" class="btn-run-node" id="btn-run-node-nav" style="text-decoration: none; display: inline-block;">
+          Run a Node
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link active" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link" onclick="closeMobileMenu()">About</a>
+      <a href="node.html" class="btn-run-node mobile-btn" style="text-decoration: none; text-align: center;" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <main class="page-content" id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <!-- Background Scene Layer with Terrain and Neon Curves -->
+      <div class="hero-bg-layer" aria-hidden="true">
+        <img src="nexilo_bg.jpg" alt="" class="hero-bg-img" />
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="container hero-container">
+        <!-- Hero Left Column -->
+        <div class="hero-left">
+          <h1 class="hero-title">
+            Decentralized<br />
+            AI Inference<br />
+            for Everyone.
+          </h1>
+
+          <p class="hero-subtitle">
+            Open models. Pay per token in USDT. Powered by a global network of GPU nodes. No accounts, no API keys, no lock-in.
+          </p>
+
+          <div class="hero-actions">
+            <a href="playground.html" class="btn-primary" id="btn-try-playground" style="text-decoration: none;">
+              <span>Try the Playground</span>
+              <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="docs.html" class="btn-secondary" id="btn-read-docs" style="text-decoration: none;">
+              Read the Docs
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Center/Right Visual with Floating 3D Logo & Vertical Features -->
+        <div class="hero-visual-col">
+          <!-- 3D Logo Showcase Centerpiece -->
+          <div class="floating-logo-container" id="floating-logo-wrap">
+            <div class="logo-glow-aura"></div>
+            <img src="nexilo_logo_hero.png" alt="Nexilo 3D Core" class="floating-3d-logo" id="hero-3d-logo" />
+            <div class="logo-reflection"></div>
+          </div>
+
+          <!-- Vertical Feature Items -->
+          <div class="hero-feature-list">
+            <!-- Feature Item 1: Open Models -->
+            <div class="hero-feature-item" onclick="openModelsModal()">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Wireframe Isometric Cube -->
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Open Models</h4>
+                <p class="feature-desc">Any supported model</p>
+              </div>
+            </div>
+
+            <!-- Feature Item 2: Pay Per Token -->
+            <div class="hero-feature-item" onclick="openPricingModal()">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- 3 Stacked Coins / Tokens -->
+                  <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+                  <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"></path>
+                  <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Pay Per Token</h4>
+                <p class="feature-desc">USDT on all networks</p>
+              </div>
+            </div>
+
+            <!-- Feature Item 3: Global GPU Nodes -->
+            <div class="hero-feature-item" onclick="openNodeModal()">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Wireframe Globe Network -->
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <path d="M12 3a14.5 14.5 0 0 0 0 18"></path>
+                  <path d="M12 3a14.5 14.5 0 0 1 0 18"></path>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Global GPU Nodes</h4>
+                <p class="feature-desc">Fast and reliable</p>
+              </div>
+            </div>
+
+            <!-- Feature Item 4: Privacy Friendly -->
+            <div class="hero-feature-item" onclick="openDocsModal()">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Padlock -->
+                  <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                  <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+                  <circle cx="12" cy="16" r="1" fill="#ffffff"></circle>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Privacy Friendly</h4>
+                <p class="feature-desc">No keys, no logs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats / Metrics Row -->
+    <section class="stats-section">
+      <div class="container stats-container">
+        <!-- Stat Item 1 -->
+        <div class="stat-column">
+          <div class="stat-value">90%</div>
+          <div class="stat-label">
+            of settlement goes<br />
+            to node operators
+          </div>
+        </div>
+
+        <!-- Stat Item 2 -->
+        <div class="stat-column">
+          <div class="stat-value">$2</div>
+          <div class="stat-label">
+            hard ceiling per request<br />
+            in USDT
+          </div>
+        </div>
+
+        <!-- Stat Item 3 -->
+        <div class="stat-column">
+          <div class="stat-value">4</div>
+          <div class="stat-label">
+            open models across<br />
+            three price tiers
+          </div>
+        </div>
+
+        <!-- Stat Item 4 -->
+        <div class="stat-column">
+          <div class="stat-value">0</div>
+          <div class="stat-label">
+            signups, API keys,<br />
+            or prompt logs
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture / How It Works Section -->
+    <section class="architecture-section" id="how-it-works">
+      <div class="container arch-container">
+        <!-- Arch Left Column -->
+        <div class="arch-left">
+          <h2 class="arch-heading">
+            One request, four hops,<br />
+            one on-chain receipt.
+          </h2>
+
+          <p class="arch-description">
+            Your client hits a 402, signs a spending ceiling, and the orchestrator streams the answer from a GPU node. When the stream ends, only the delivered tokens are settled on chain.
+          </p>
+
+          <button class="btn-how-it-works" id="btn-how-it-works" onclick="triggerFlowSimulation()">
+            <span>How it works</span>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Arch Right Column: Interactive Process Diagram -->
+        <div class="arch-right">
+          <div class="arch-flow-wrapper">
+            <!-- 4 Process Cards Row -->
+            <div class="arch-cards-row">
+              <!-- Card 1: Your wallet -->
+              <div class="process-card" id="step-wallet">
+                <div class="process-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="process-info">
+                  <div class="process-title">Your wallet</div>
+                  <div class="process-subtitle">signs a ceiling</div>
+                </div>
+              </div>
+
+              <!-- Connecting Arrow 1 -->
+              <div class="flow-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+
+              <!-- Card 2: x402 payment -->
+              <div class="process-card" id="step-payment">
+                <div class="process-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                  </svg>
+                </div>
+                <div class="process-info">
+                  <div class="process-title">x402 payment</div>
+                  <div class="process-subtitle">authorize per request</div>
+                </div>
+              </div>
+
+              <!-- Connecting Arrow 2 -->
+              <div class="flow-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+
+              <!-- Card 3: Orchestrator -->
+              <div class="process-card" id="step-orchestrator">
+                <div class="process-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                </div>
+                <div class="process-info">
+                  <div class="process-title">Orchestrator</div>
+                  <div class="process-subtitle">dispatch &bull; bill &bull; settle</div>
+                </div>
+              </div>
+
+              <!-- Connecting Arrow 3 -->
+              <div class="flow-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+
+              <!-- Card 4: GPU node -->
+              <div class="process-card" id="step-gpunode">
+                <div class="process-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                    <line x1="20" y1="9" x2="23" y2="9"></line>
+                    <line x1="20" y1="14" x2="23" y2="14"></line>
+                    <line x1="1" y1="9" x2="4" y2="9"></line>
+                    <line x1="1" y1="14" x2="4" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="process-info">
+                  <div class="process-title">GPU node</div>
+                  <div class="process-subtitle">run the model</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Curved Return Settlement Loop (SVG Path) -->
+            <div class="settlement-loop-container">
+              <svg class="settlement-svg" viewBox="0 0 600 36" fill="none">
+                <!-- Dotted return curve from GPU node center (approx 530) to Wallet center (approx 70) -->
+                <path d="M 530,2 Q 300,32 70,2" stroke="#0ea5e9" stroke-width="1.2" stroke-dasharray="3 3" fill="none" class="loop-path"></path>
+                <!-- Subtle arrowhead pointing to wallet -->
+                <polyline points="74,8 70,2 78,3" stroke="#0ea5e9" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              </svg>
+              <div class="settlement-label" id="settlement-badge">
+                settlement: only delivered tokens, USDT (All Networks)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Three Feature Cards -->
+    <section class="bottom-cards-section">
+      <div class="container cards-container">
+        <!-- Bottom Card 1: Open Models -->
+        <div class="feature-card" onclick="openModelsModal()">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">Open Models</h3>
+          <p class="card-body">
+            Run popular open models served by the community. New models can be added by node operators.
+          </p>
+          <a href="pricing.html" class="card-action-link">
+            <span>Explore models</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Bottom Card 2: Pay Per Token -->
+        <div class="feature-card" onclick="window.location.href='pricing.html'">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+                <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"></path>
+                <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">Pay Per Token</h3>
+          <p class="card-body">
+            Transparent pricing in USDT with x402. No subscriptions, no hidden fees.
+          </p>
+          <a href="pricing.html" class="card-action-link">
+            <span>View pricing</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Bottom Card 3: Run a Node -->
+        <div class="feature-card" onclick="window.location.href='node.html'">
+          <div class="card-header-icon">
+            <div class="blue-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="4.5" rx="2.25"></rect>
+                <rect x="3" y="10" width="18" height="4.5" rx="2.25"></rect>
+                <rect x="3" y="16" width="18" height="4.5" rx="2.25"></rect>
+              </svg>
+            </div>
+          </div>
+          <h3 class="card-title">Run a Node</h3>
+          <p class="card-body">
+            Share your GPUs, serve models, and earn USDT. Join a growing network of operators.
+          </p>
+          <a href="node.html" class="card-action-link">
+            <span>Run a node</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  
+    <!-- Alternating Feature Blocks -->
+    <section class="feature-split-section container">
+      <!-- Feature 1: Direct P2P Settlement -->
+      <div class="feature-split-row">
+        <div class="feature-split-content">
+          <div class="feature-split-badge">P2P Compute Settlement</div>
+          <h2 class="feature-split-title">No Middleware, No Markups</h2>
+          <p class="feature-split-desc">
+            Traditional cloud platforms rely on proprietary infrastructure and charge massive premiums for AI inference. Nexilo removes the middleman entirely, connecting your client directly to independent GPU operators worldwide with micro-metered settlement.
+          </p>
+          <ul class="feature-split-list">
+            <li>Zero subscription lock-ins or monthly minimum commitments</li>
+            <li>Cost transparency guaranteed by cryptographic settlement proofs</li>
+            <li>Direct 90% revenue distribution to the operator's wallet</li>
+          </ul>
+        </div>
+        <div class="feature-split-visual">
+          <div class="tech-widget-header">
+            <div class="tech-window-dots">
+              <span class="tech-dot red"></span>
+              <span class="tech-dot yellow"></span>
+              <span class="tech-dot green"></span>
+            </div>
+            <span class="tech-widget-title">route-tracer // session-883f</span>
+            <span class="tech-status-chip">Live P2P Stream</span>
+          </div>
+          <div class="tech-widget-body">
+            <div class="route-tracer-list">
+              <div class="tracer-step">
+                <div class="tracer-step-left">
+                  <span class="tracer-index">01</span>
+                  <span class="tracer-label">Client Allowance</span>
+                </div>
+                <span class="tracer-tag highlight">EIP-712 Ceiling $2.00 USDT</span>
+              </div>
+              <div class="tracer-step">
+                <div class="tracer-step-left">
+                  <span class="tracer-index">02</span>
+                  <span class="tracer-label">Target GPU Worker</span>
+                </div>
+                <span class="tracer-tag">node-fra-4090 #84 (18ms RTT)</span>
+              </div>
+              <div class="tracer-step">
+                <div class="tracer-step-left">
+                  <span class="tracer-index">03</span>
+                  <span class="tracer-label">Delivered Tokens</span>
+                </div>
+                <span class="tracer-tag highlight">DeepSeek-V3 (108.4 tok/s)</span>
+              </div>
+              <div class="tracer-step">
+                <div class="tracer-step-left">
+                  <span class="tracer-index">04</span>
+                  <span class="tracer-label">Settlement Proof</span>
+                </div>
+                <span class="tracer-tag success">0.000312 USDT (90% to Node)</span>
+              </div>
+            </div>
+            <div class="tech-console-box">
+              <div class="tech-console-line">
+                <span class="tech-console-prompt">&gt;</span>
+                <span class="tech-console-val">x402 challenge verified (0.04s) &bull; WebSocket opened</span>
+              </div>
+              <div class="tech-console-line">
+                <span class="tech-console-prompt">&gt;</span>
+                <span class="tech-console-val green">Stream finalized: 1,420 tokens &bull; Multi-chain receipt verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Privacy by Architecture -->
+      <div class="feature-split-row reverse">
+        <div class="feature-split-content">
+          <div class="feature-split-badge">Privacy By Architecture</div>
+          <h2 class="feature-split-title">Uncompromising Privacy</h2>
+          <p class="feature-split-desc">
+            Your prompts and proprietary data belong exclusively to you. Nexilo ensures that all requests are processed in secure, ephemeral memory buffers. Operators cannot inspect, write to disk, or train on your payloads.
+          </p>
+          <ul class="feature-split-list">
+            <li>No accounts, no email signups, and zero API keys tied to your real identity</li>
+            <li>Ephemeral memory execution with immediate 0x00 zeroization on disconnect</li>
+            <li>On-chain consensus slashing for any node attempting telemetry interception</li>
+          </ul>
+        </div>
+        <div class="feature-split-visual">
+          <div class="tech-widget-header">
+            <div class="tech-window-dots">
+              <span class="tech-dot red"></span>
+              <span class="tech-dot yellow"></span>
+              <span class="tech-dot green"></span>
+            </div>
+            <span class="tech-widget-title">enclave-shield-guard // active</span>
+            <span class="tech-status-chip">Ephemeral VRAM</span>
+          </div>
+          <div class="tech-widget-body">
+            <div class="security-matrix-grid">
+              <div class="security-card-mini">
+                <div class="sec-mini-header">
+                  <svg class="sec-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                  <span>RAM Execution</span>
+                </div>
+                <div class="sec-mini-desc">Volatile memory buffers only. Operating system disallows disk swaps.</div>
+                <span class="sec-mini-tag">0 Bytes Written</span>
+              </div>
+              <div class="security-card-mini">
+                <div class="sec-mini-header">
+                  <svg class="sec-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Auto Shred</span>
+                </div>
+                <div class="sec-mini-desc">Transient session secrets are shredded immediately upon socket termination.</div>
+                <span class="sec-mini-tag">0x00 Wiped</span>
+              </div>
+              <div class="security-card-mini">
+                <div class="sec-mini-header">
+                  <svg class="sec-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <span>Enclave TLS 1.3</span>
+                </div>
+                <div class="sec-mini-desc">Direct client-to-node transport encryption using ChaCha20-Poly1305.</div>
+                <span class="sec-mini-tag">End-to-End</span>
+              </div>
+              <div class="security-card-mini">
+                <div class="sec-mini-header">
+                  <svg class="sec-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                  </svg>
+                  <span>Zero Telemetry</span>
+                </div>
+                <div class="sec-mini-desc">Strict zero-logging consensus enforced with 1,500 USDT node slashing bonds.</div>
+                <span class="sec-mini-tag">Bond Protected</span>
+              </div>
+            </div>
+            <div class="tech-console-box">
+              <div class="tech-console-line">
+                <span class="tech-console-prompt">&gt;</span>
+                <span class="tech-console-val">[STATUS] ENCLAVE_ATTESTED &bull; [DISK_IO] 0_WRITES &bull; [LOGS] NONE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-header">
+          <div class="feature-split-badge">Community &amp; Enterprise Trust</div>
+          <h2 class="section-title">Trusted by Developers &amp; Operators</h2>
+          <p class="section-subtitle">
+            See how forward-thinking engineers and GPU cluster operators leverage Nexilo's decentralized mesh for enterprise-scale AI workloads.
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-card-top">
+                <span class="test-badge">Enterprise AI Lead</span>
+                <div class="test-stars">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="testimonial-metric-pill">Cost Reduction: -82% vs AWS Bedrock</div>
+              <p class="testimonial-quote">
+                "Switching from AWS to Nexilo cut our monthly inference costs by <strong>82%</strong>. The x402 payment channel is remarkably seamless, and our team never has to navigate arbitrary rate limits or complex cloud quotas again."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="avatar-monogram purple">ER</div>
+              <div>
+                <div class="testimonial-name">Elena Rodriguez</div>
+                <div class="testimonial-role">CTO, DataFlow Insights</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-card-top">
+                <span class="test-badge">Verified Operator</span>
+                <div class="test-stars">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="testimonial-metric-pill">Monthly Yield: $1,840 USDT (4x 4090)</div>
+              <p class="testimonial-quote">
+                "I connected four idle RTX 4090s to the mesh last month. The daily USDT settlements hit my wallet automatically on-chain. It's by far the most consistent, transparent hardware yield I've ever experienced."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="avatar-monogram blue">MC</div>
+              <div>
+                <div class="testimonial-name">Marcus Chen</div>
+                <div class="testimonial-role">Independent Node Operator</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-card-top">
+                <span class="test-badge">Production Engineer</span>
+                <div class="test-stars">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="testimonial-metric-pill">Global Latency: 118ms TTFT</div>
+              <p class="testimonial-quote">
+                "The ability to run open weights like Llama 3.3 and DeepSeek-V3 with zero vendor lock-in and <strong>118ms TTFT</strong> gave our startup an enormous competitive advantage without enterprise lock-in."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="avatar-monogram emerald">DA</div>
+              <div>
+                <div class="testimonial-name">David Althaus</div>
+                <div class="testimonial-role">Lead AI Engineer, Synthetix</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner-section container">
+      <div class="cta-banner">
+        <div class="cta-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Permissionless AI Infrastructure</span>
+        </div>
+        <h2 class="cta-banner-title">Ready to decentralize your AI inference?</h2>
+        <p class="cta-banner-desc">
+          Stream open-weights intelligence from 1,248 community GPUs in under 60 seconds with zero credit card holds, zero API keys, and micro-metered USDT settlements.
+        </p>
+        <div class="cta-actions-row">
+          <a href="playground.html" class="btn-cta-primary">
+            <span>Launch Playground</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="node.html" class="btn-cta-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span>Deploy a GPU Node</span>
+          </a>
+        </div>
+        <div class="cta-trust-strip">
+          <div class="cta-trust-item">
+            <span class="cta-trust-dot"></span>
+            <span>1,248 Verified Nodes</span>
+          </div>
+          <div class="cta-trust-item">
+            <span class="cta-trust-dot"></span>
+            <span>48.2 TB Global VRAM</span>
+          </div>
+          <div class="cta-trust-item">
+            <span class="cta-trust-dot"></span>
+            <span>Atomic Multi-Chain Settlement</span>
+          </div>
+          <div class="cta-trust-item">
+            <span class="cta-trust-dot"></span>
+            <span>Zero KYC &bull; Zero Logs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="logo-icon-wrap sm">
+                <img src="nexilo_logo_transparent.png" alt="Nexilo" class="brand-icon" />
+              </div>
+              <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+            </div>
+            <p class="footer-tagline">
+              Decentralized AI inference powered by community GPUs. Built with the x402 open HTTP payment standard.
+            </p>
+          </div>
+
+          <div class="footer-nav-groups">
+            <div class="footer-group">
+              <h5 class="footer-title">Network</h5>
+              <ul>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="pricing.html">Open Models</a></li>
+                <li><a href="node.html">Node Telemetry</a></li>
+                <li><a href="pricing.html">Pricing Tiers</a></li>
+              </ul>
+            </div>
+            <div class="footer-group">
+              <h5 class="footer-title">Developers</h5>
+              <ul>
+                <li><a href="docs.html">Documentation</a></li>
+                <li><a href="docs.html#x402-protocol">x402 Protocol</a></li>
+                <li><a href="docs.html#python-sdk">Python SDK</a></li>
+                <li><a href="docs.html#models-table">API Reference</a></li>
+              </ul>
+            </div>
+            <div class="footer-group">
+              <h5 class="footer-title">Community</h5>
+              <ul>
+                <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+                <li><a href="https://x.com" target="_blank" rel="noopener">X / Twitter</a></li>
+                <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://discord.com" target="_blank" rel="noopener">Discord</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Nexilo Network. Decentralized AI inference for everyone.</p>
+          <div class="social-share-preview-info">
+            <span class="badge-status"><span class="pulse-dot"></span> Network Live &bull; 1,248 Nodes Online</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <!-- ================= MODALS & INTERACTIVE OVERLAYS ================= -->
+
+  <!-- Modal 1: Interactive AI Playground -->
+  <div class="modal-overlay" id="modal-playground" onclick="handleModalBackdrop(event, 'modal-playground')">
+    <div class="modal-dialog playground-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-badge">Interactive Playground</div>
+          <h3 class="modal-title">Stream AI Inference in Real-Time</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-playground')" aria-label="Close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="playground-controls">
+          <div class="control-group">
+            <label for="model-select">Select Model:</label>
+            <select id="model-select" class="select-input">
+              <option value="llama3">Llama 3.3 70B Instruct ($0.0008 / 1K tokens)</option>
+              <option value="deepseek">DeepSeek-V3 671B MoE ($0.0004 / 1K tokens)</option>
+              <option value="qwen">Qwen 2.5 72B Coder ($0.0006 / 1K tokens)</option>
+              <option value="mistral">Mistral Large 2 ($0.0010 / 1K tokens)</option>
+            </select>
+          </div>
+          <div class="telemetry-pill">
+            <span class="dot-green"></span>
+            <span>x402 Wallet: Ready &bull; Ceiling: $2.00 USDT</span>
+          </div>
+        </div>
+
+        <div class="prompt-suggestions">
+          <span class="suggestion-chip" onclick="setPrompt('Explain how x402 payment channels settle micro-transactions per token stream.')">
+            What is x402 payment?
+          </span>
+          <span class="suggestion-chip" onclick="setPrompt('Write a lightweight Python client to stream tokens from Nexilo decentralized nodes.')">
+            Python client code
+          </span>
+          <span class="suggestion-chip" onclick="setPrompt('Compare centralized cloud GPU inference vs Nexilo decentralized node incentives.')">
+            Why decentralized?
+          </span>
+        </div>
+
+        <div class="playground-input-row">
+          <input type="text" id="playground-prompt-input" class="text-input" placeholder="Type a prompt to test decentralized streaming..." value="Explain how x402 payment channels settle micro-transactions per token stream." />
+          <button class="btn-primary" id="btn-stream-run" onclick="runPlaygroundStream()">
+            <span>Generate</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Terminal Output -->
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">nexilo-stream-session — node#4090-ams-04</span>
+            <span class="terminal-status" id="stream-status-badge">Idle</span>
+          </div>
+          <div class="terminal-content" id="playground-terminal-output">
+Click "Generate" to stream tokens directly from a decentralized GPU node through the x402 payment orchestrator.
+          </div>
+        </div>
+
+        <!-- Live Stream Metrics -->
+        <div class="playground-live-metrics">
+          <div class="live-metric">
+            <span class="metric-caption">Delivered Tokens</span>
+            <span class="metric-num" id="stat-tokens">0</span>
+          </div>
+          <div class="live-metric">
+            <span class="metric-caption">Streaming Speed</span>
+            <span class="metric-num" id="stat-speed">0 tok/s</span>
+          </div>
+          <div class="live-metric">
+            <span class="metric-caption">Settled Cost</span>
+            <span class="metric-num text-cyan" id="stat-cost">$0.000000 USDT</span>
+          </div>
+          <div class="live-metric">
+            <span class="metric-caption">Payment Hop</span>
+            <span class="metric-num" id="stat-hop">x402 Multi-Chain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Run a Node Modal -->
+  <div class="modal-overlay" id="modal-node" onclick="handleModalBackdrop(event, 'modal-node')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-badge">Node Operator Program</div>
+          <h3 class="modal-title">Earn 90% USDT Settlement on Your GPUs</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-node')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Connect your RTX 3090, 4090, A100, or H100 GPU to the Nexilo decentralized mesh. Receive instant on-chain settlements straight to your wallet.
+        </p>
+
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">1-Step Quick Install (Linux / WSL2 / Docker)</span>
+            <button class="copy-btn" onclick="copyNodeCommand()">Copy Command</button>
+          </div>
+          <pre class="terminal-content code-block" id="node-cmd">curl -sSL https://nexilo.network/install-node.sh | bash --wallet 0xYourWalletAddress</pre>
+        </div>
+
+        <div class="hardware-spec-grid">
+          <div class="spec-card">
+            <div class="spec-gpu">NVIDIA RTX 4090</div>
+            <div class="spec-vram">24 GB VRAM</div>
+            <div class="spec-earn">Est. ~$180 - $340 / mo</div>
+          </div>
+          <div class="spec-card highlight">
+            <div class="spec-gpu">NVIDIA A100 SXM</div>
+            <div class="spec-vram">80 GB VRAM</div>
+            <div class="spec-earn">Est. ~$650 - $1,100 / mo</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-gpu">NVIDIA H100 PCIe</div>
+            <div class="spec-vram">80 GB HBM3</div>
+            <div class="spec-earn">Est. ~$1,400 - $2,200 / mo</div>
+          </div>
+        </div>
+
+        <div class="modal-cta-row">
+          <button class="btn-primary" onclick="alert('Node installer download started!')">Download Installer</button>
+          <button class="btn-secondary" onclick="closeModal('modal-node'); openDocsModal()">Read Operator Guide</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Open Models Directory -->
+  <div class="modal-overlay" id="modal-models" onclick="handleModalBackdrop(event, 'modal-models')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-badge">Supported Models</div>
+          <h3 class="modal-title">Open Weights, Zero Vendor Lock-in</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-models')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="models-table-wrapper">
+          <table class="models-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Context</th>
+                <th>Price / 1M Tokens</th>
+                <th>Active Nodes</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Llama 3.3 70B Instruct</strong><br><span class="muted">Meta AI</span></td>
+                <td>128K</td>
+                <td class="text-cyan">$0.80 USDT</td>
+                <td>482 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('llama3')">Test</button></td>
+              </tr>
+              <tr>
+                <td><strong>DeepSeek-V3 671B MoE</strong><br><span class="muted">DeepSeek AI</span></td>
+                <td>64K</td>
+                <td class="text-cyan">$0.40 USDT</td>
+                <td>329 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('deepseek')">Test</button></td>
+              </tr>
+              <tr>
+                <td><strong>Qwen 2.5 72B Coder</strong><br><span class="muted">Alibaba Cloud</span></td>
+                <td>128K</td>
+                <td class="text-cyan">$0.60 USDT</td>
+                <td>274 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('qwen')">Test</button></td>
+              </tr>
+              <tr>
+                <td><strong>Mistral Large 2 123B</strong><br><span class="muted">Mistral AI</span></td>
+                <td>128K</td>
+                <td class="text-cyan">$1.00 USDT</td>
+                <td>163 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('mistral')">Test</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Pricing Calculator -->
+  <div class="modal-overlay" id="modal-pricing" onclick="handleModalBackdrop(event, 'modal-pricing')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-badge">Pay Per Token</div>
+          <h3 class="modal-title">Transparent USDT Micro-Billing</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-pricing')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="pricing-calc-box">
+          <label for="token-slider">Monthly Token Volume: <span id="token-display" class="slider-val">10,000,000</span> tokens</label>
+          <input type="range" id="token-slider" min="1000000" max="100000000" step="1000000" value="10000000" oninput="updatePricingCalc()" class="range-slider" />
+          
+          <div class="price-comparison-grid">
+            <div class="comparison-card nexilo-card">
+              <span class="compare-badge">Nexilo Network</span>
+              <div class="compare-price" id="calc-nexilo-price">$6.00</div>
+              <p class="compare-sub">Direct GPU settlement via x402. No monthly commitments.</p>
+            </div>
+            <div class="comparison-card legacy-card">
+              <span class="compare-badge muted">Centralized Cloud APIs</span>
+              <div class="compare-price" id="calc-cloud-price">$28.00</div>
+              <p class="compare-sub">Fixed tiers, vendor lock-in, credit card holds.</p>
+            </div>
+          </div>
+          <div class="savings-alert">
+            You save approximately <strong id="calc-savings" class="text-cyan">78%</strong> with Nexilo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Documentation Modal -->
+  <div class="modal-overlay" id="modal-docs" onclick="handleModalBackdrop(event, 'modal-docs')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-badge">Developer Docs</div>
+          <h3 class="modal-title">Quickstart with Nexilo x402 SDK</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-docs')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="docs-code-sample">
+          <span class="terminal-title">Python Integration</span>
+          <pre class="terminal-content code-block">import nexilo
+
+client = nexilo.Client(
+    wallet_private_key="...",  # signs x402 spending ceiling
+    max_budget_usdt=2.00       # $2 hard safety ceiling
+)
+
+response = client.chat.completions.create(
+    model="llama-3.3-70b",
+    messages=[{"role": "user", "content": "Hello Nexilo!"}],
+    stream=True
+)
+
+for chunk in response:
+    print(chunk.choices[0].delta.content, end="", flush=True)
+
+# On stream finish, on-chain receipt is verified automatically</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

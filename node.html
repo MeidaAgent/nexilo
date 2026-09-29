@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Run a Node — Nexilo Decentralized GPU Network</title>
+  <meta name="description" content="Share your GPU compute, serve open-weights AI models, and earn 90% USDT on all networks settlements straight to your wallet." />
+  
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/node.html" />
+  <meta property="og:title" content="Run a Node — Nexilo Decentralized GPU Network" />
+  <meta property="og:description" content="Share your GPU compute, serve open-weights AI models, and earn 90% USDT on all networks settlements straight to your wallet." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Run a Node — Nexilo Decentralized GPU Network" />
+  <meta name="twitter:description" content="Share your GPU compute, serve open-weights AI models, and earn 90% USDT on all networks settlements straight to your wallet." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+  <div class="ambient-glow glow-top-right"></div>
+
+  <!-- Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="node.html" class="nav-link active">Node</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#install" class="btn-run-node">Run a Node</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link active" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link" onclick="closeMobileMenu()">About</a>
+      <a href="#install" class="btn-run-node mobile-btn" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <main class="page-content container node-page-container">
+    <!-- Hero Section -->
+    <section class="inner-hero-section">
+      <div class="badge-status"><span class="pulse-dot"></span> Node Operator Mesh &bull; 90% USDT Direct Settlement</div>
+      <h1 class="inner-hero-title">Turn Idle GPUs Into High-Yield Compute Revenue</h1>
+      <p class="inner-hero-lead">
+        Join over 1,200 independent GPU nodes serving decentralized AI inference. Zero minimum lock-in periods. Instant on-chain payouts every time a stream terminates.
+      </p>
+
+      <!-- 1-Click Install Block -->
+      <div class="install-block" id="install">
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">Quickstart Node Daemon (Linux / WSL2 / Docker)</span>
+            <button class="copy-btn" onclick="copySnippet('node-install-cmd')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="node-install-cmd"><code>curl -sSL https://nexilo.network/install-node.sh | bash -s -- --wallet 0xYourWalletAddress --gpu auto</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Telemetry Stats -->
+    <section class="telemetry-stats-grid">
+      <div class="stat-card">
+        <div class="stat-num text-cyan">1,248</div>
+        <div class="stat-desc">Active GPU Nodes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">48.2 TB</div>
+        <div class="stat-desc">Aggregated VRAM</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num text-cyan">$42,890</div>
+        <div class="stat-desc">24h Settlement Payout (USDT)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">142 ms</div>
+        <div class="stat-desc">Global Avg TTFT Latency</div>
+      </div>
+    </section>
+
+    <!-- Earnings Calculator -->
+    <section class="calculator-section">
+      <div class="calc-card">
+        <h2 class="calc-heading">Estimate Your GPU Monthly Earnings</h2>
+        <p class="calc-sub">Choose your hardware configuration to calculate estimated earnings based on current inference network demand.</p>
+
+        <div class="calc-controls-grid">
+          <div class="control-box">
+            <label for="gpu-type-select">GPU Hardware Model:</label>
+            <select id="gpu-type-select" class="select-input full-width" onchange="calculateNodeEarnings()">
+              <option value="4090">NVIDIA RTX 4090 (24 GB) — ~$260 / GPU</option>
+              <option value="3090">NVIDIA RTX 3090 (24 GB) — ~$190 / GPU</option>
+              <option value="6000">NVIDIA RTX 6000 Ada (48 GB) — ~$480 / GPU</option>
+              <option value="a100" selected>NVIDIA A100 SXM (80 GB) — ~$850 / GPU</option>
+              <option value="h100">NVIDIA H100 SXM (80 GB HBM3) — ~$1,750 / GPU</option>
+            </select>
+          </div>
+
+          <div class="control-box">
+            <label for="gpu-count-slider">GPU Count: <span id="gpu-count-label" class="text-cyan">2 GPUs</span></label>
+            <input type="range" id="gpu-count-slider" min="1" max="8" value="2" class="range-slider" oninput="calculateNodeEarnings()" />
+          </div>
+        </div>
+
+        <div class="calc-results-box">
+          <div class="result-item">
+            <span class="res-title">Estimated Monthly Earnings</span>
+            <span class="res-value text-cyan" id="est-monthly-earn">$1,700 USDT</span>
+          </div>
+          <div class="result-item">
+            <span class="res-title">Est. Daily Payout</span>
+            <span class="res-value" id="est-daily-earn">~$56.60 USDT</span>
+          </div>
+          <div class="result-item">
+            <span class="res-title">Operator Revenue Share</span>
+            <span class="res-value text-cyan">90% Direct</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Nodes Explorer Table -->
+    <section class="live-nodes-section">
+      <h2 class="section-title">Live Active Nodes (Mesh Snapshot)</h2>
+      <div class="models-table-wrapper">
+        <table class="models-table">
+          <thead>
+            <tr>
+              <th>Node ID</th>
+              <th>Region</th>
+              <th>GPU Configuration</th>
+              <th>Loaded Model</th>
+              <th>Uptime</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>node-ams-8491</code></td>
+              <td>Frankfurt, DE</td>
+              <td>8x NVIDIA A100 80GB</td>
+              <td>DeepSeek-V3 671B</td>
+              <td>99.98%</td>
+              <td><span class="badge-status"><span class="pulse-dot"></span> Streaming</span></td>
+            </tr>
+            <tr>
+              <td><code>node-iad-3024</code></td>
+              <td>Virginia, US</td>
+              <td>4x NVIDIA RTX 4090 24GB</td>
+              <td>Llama-3.3-70B</td>
+              <td>99.85%</td>
+              <td><span class="badge-status"><span class="pulse-dot"></span> Streaming</span></td>
+            </tr>
+            <tr>
+              <td><code>node-nrt-1205</code></td>
+              <td>Tokyo, JP</td>
+              <td>8x NVIDIA H100 80GB</td>
+              <td>Mistral-Large-2</td>
+              <td>100.00%</td>
+              <td><span class="badge-status"><span class="pulse-dot"></span> Ready</span></td>
+            </tr>
+            <tr>
+              <td><code>node-sin-5921</code></td>
+              <td>Singapore</td>
+              <td>2x NVIDIA RTX 4090 24GB</td>
+              <td>Qwen-2.5-72B</td>
+              <td>99.92%</td>
+              <td><span class="badge-status"><span class="pulse-dot"></span> Streaming</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  
+    <!-- Step by Step Setup -->
+    <section class="docs-section container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem auto;">
+        <div class="feature-split-badge">Onboarding Workflow</div>
+        <h2 class="section-title">How to Become a Node Operator</h2>
+        <p class="section-subtitle" style="color: #94a3b8; font-size: 1.05rem;">
+          Connect your GPU compute to the decentralized mesh in four straightforward steps and start receiving automated USDT micro-settlements.
+        </p>
+      </div>
+
+      <div class="setup-steps">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number-badge">01</div>
+          <div class="step-content">
+            <h3 class="step-title">Hardware Verification &amp; VRAM Check</h3>
+            <p class="step-desc">
+              Ensure you have a supported NVIDIA GPU (RTX 3090, 4090, A100, or H100) running Ubuntu 22.04+ or modern Linux with proprietary NVIDIA drivers (v535+) and Docker Container Runtime installed. Minimum 24 GB VRAM is recommended to serve quantized open reasoning models.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number-badge">02</div>
+          <div class="step-content">
+            <h3 class="step-title">Configure Self-Custodial Payout Wallet</h3>
+            <p class="step-desc">
+              Prepare any EVM-compatible wallet address on Ethereum, Arbitrum, or Base. Nexilo smart contracts disburse 90% of token fees atomically upon stream termination straight to this address with zero intermediary escrow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number-badge">03</div>
+          <div class="step-content">
+            <h3 class="step-title">One-Command Daemon Installation</h3>
+            <p class="step-desc">
+              Execute the verified operator daemon in terminal or detached container. The installer benchmarks your hardware, mounts flash attention kernels, and registers your node on the global latency mesh:
+            </p>
+            <div class="terminal-container" style="margin-top: 14px;">
+              <div class="terminal-bar">
+                <span class="terminal-title">bash &bull; install-node.sh</span>
+                <button class="copy-btn" onclick="copySnippet('daemon-inline-cmd')">Copy</button>
+              </div>
+              <pre class="terminal-content code-block" id="daemon-inline-cmd"><code>curl -sSL https://nexilo.network/install-node.sh | bash -s -- --wallet 0xYourWalletAddress --gpu auto</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-number-badge">04</div>
+          <div class="step-content">
+            <h3 class="step-title">Monitor Streaming Telemetry &amp; Collect Yield</h3>
+            <p class="step-desc">
+              Open your local operator telemetry console at <code>http://localhost:9100</code> to observe real-time inference sessions, thermal status, token delivery rates, and accumulated USDT settlement receipts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Nexilo Network. Decentralized AI inference for everyone.</p>
+        <div class="social-share-preview-info">
+          <span class="badge-status"><span class="pulse-dot"></span> Network Live &bull; 1,248 Nodes Online</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

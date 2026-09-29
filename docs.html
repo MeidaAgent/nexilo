@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Documentation — Nexilo Decentralized AI Inference</title>
+  <meta name="description" content="Complete developer documentation for Nexilo: x402 protocol integration, Python SDK, API reference, and node deployment guides." />
+  
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexilo.network/docs.html" />
+  <meta property="og:title" content="Documentation — Nexilo Decentralized AI Inference" />
+  <meta property="og:description" content="Integrate decentralized AI inference into your apps with the x402 open HTTP payment standard." />
+  <meta property="og:image" content="banner_nexilo.png" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="768" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Documentation — Nexilo Decentralized AI Inference" />
+  <meta name="twitter:description" content="Integrate decentralized AI inference into your apps with the x402 open HTTP payment standard." />
+  <meta name="twitter:image" content="banner_nexilo.png" />
+
+  <link rel="icon" type="image/png" href="nexilo_logo_transparent.png" />
+  <link rel="apple-touch-icon" href="nexilo_logo_transparent.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+  <div class="ambient-glow glow-top-right"></div>
+
+  <!-- Navbar -->
+  <header class="navbar-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Nexilo Home">
+        <div class="logo-icon-wrap">
+          <img src="nexilo_logo_transparent.png" alt="Nexilo Logo" class="brand-icon" />
+        </div>
+        <span class="brand-text">Nexil<span class="gradient-o">o</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="docs.html" class="nav-link active">Docs</a>
+        <a href="node.html" class="nav-link">Node</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="node.html" class="btn-run-node">Run a Node</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html" class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="docs.html" class="mobile-link active" onclick="closeMobileMenu()">Docs</a>
+      <a href="node.html" class="mobile-link" onclick="closeMobileMenu()">Node</a>
+      <a href="playground.html" class="mobile-link" onclick="closeMobileMenu()">Playground</a>
+      <a href="pricing.html" class="mobile-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="about.html" class="mobile-link" onclick="closeMobileMenu()">About</a>
+      <a href="node.html" class="btn-run-node mobile-btn" onclick="closeMobileMenu()">Run a Node</a>
+    </div>
+  </div>
+
+  <!-- Main Docs View -->
+  <div class="docs-layout-container container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-section">
+        <div class="sidebar-heading">Getting Started</div>
+        <ul class="sidebar-menu">
+          <li><a href="#quickstart" class="sidebar-link active">Quickstart Guide</a></li>
+          <li><a href="#authentication" class="sidebar-link">Authentication & x402</a></li>
+          <li><a href="#spending-ceiling" class="sidebar-link">Spending Ceilings</a></li>
+        </ul>
+      </div>
+
+      <div class="docs-sidebar-section">
+        <div class="sidebar-heading">Client SDKs</div>
+        <ul class="sidebar-menu">
+          <li><a href="#python-sdk" class="sidebar-link">Python SDK</a></li>
+          <li><a href="#typescript-sdk" class="sidebar-link">TypeScript / Node.js</a></li>
+          <li><a href="#curl-example" class="sidebar-link">Raw HTTP / cURL</a></li>
+        </ul>
+      </div>
+
+      <div class="docs-sidebar-section">
+        <div class="sidebar-heading">Protocol & Architecture</div>
+        <ul class="sidebar-menu">
+          <li><a href="#x402-protocol" class="sidebar-link">The x402 Specification</a></li>
+          <li><a href="#arc-settlement" class="sidebar-link">Multi-Chain Settlement</a></li>
+          <li><a href="#orchestration" class="sidebar-link">Orchestrator Mesh</a></li>
+        </ul>
+      </div>
+
+      <div class="docs-sidebar-section">
+        <div class="sidebar-heading">Node Operators</div>
+        <ul class="sidebar-menu">
+          <li><a href="#node-specs" class="sidebar-link">Hardware Requirements</a></li>
+          <li><a href="#daemon-setup" class="sidebar-link">Running the Daemon</a></li>
+          <li><a href="#payout-rules" class="sidebar-link">90% Payout Mechanics</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="docs-main-content">
+      <div class="docs-header">
+        <div class="badge-status"><span class="pulse-dot"></span> v1.4.0 &bull; Mainnet Live</div>
+        <h1 class="docs-page-title">Developer Quickstart</h1>
+        <p class="docs-lead">
+          Nexilo enables permissionless AI inference with zero accounts, zero proprietary API keys, and atomic pay-per-token settlement in USDT via HTTP 402.
+        </p>
+      </div>
+
+      <!-- Section: Quickstart -->
+      <section id="quickstart" class="docs-section">
+        <h2 class="section-title">1. Installation</h2>
+        <p class="section-text">
+          Install the official Nexilo client library using pip or npm:
+        </p>
+
+        <div class="code-tabs">
+          <div class="code-tab-header">
+            <span class="active-tab">Python</span>
+            <span>Node.js / Bun</span>
+          </div>
+          <pre class="terminal-content code-block"><code>pip install nexilo-ai</code></pre>
+        </div>
+      </section>
+
+      <!-- Section: Authentication -->
+      <section id="authentication" class="docs-section">
+        <h2 class="section-title">2. Authentication & x402</h2>
+        <p class="section-text">
+          Nexilo has no accounts and no API keys to leak. Every request is authorized at the HTTP layer using the x402 payment standard: the orchestrator replies with a <code>402 Payment Required</code> challenge, your client answers with a signed EIP-712 authorization from your own wallet, and the stream begins. The signature proves budget, never identity.
+        </p>
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">challenge / response headers</span>
+            <button class="copy-btn" onclick="copySnippet('auth-code')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="auth-code"><code>HTTP/1.1 402 Payment Required
+X-Payment-Required: eip712
+X-Price: 0.0000008 USDT/token
+X-Ceiling-Max: 2.00 USDT
+
+# Client answers with a wallet signature
+HTTP/1.1 200 OK
+X-Payment-Signature: 0xf3a9...
+X-Session-Channel: ws://mesh.nexilo.network/s/9c12</code></pre>
+        </div>
+      </section>
+
+      <!-- Section: Spending Ceilings -->
+      <section id="spending-ceiling" class="docs-section">
+        <h2 class="section-title">3. Spending Ceilings</h2>
+        <p class="section-text">
+          A spending ceiling is the hard safety limit attached to every request. Your client signs the ceiling before a single token is generated, so a malformed loop, a hostile prompt, or a stalled node can never charge you more than the amount you authorized. Unstreamed tokens are never settled.
+        </p>
+        <ul class="section-list">
+          <li><strong>Per request:</strong> capped at $2.00 USDT by default, configurable down to $0.01.</li>
+          <li><strong>Per session:</strong> a rolling session budget across many prompts, signed once.</li>
+          <li><strong>Failure behavior:</strong> if the ceiling is reached mid-stream, the connection closes and you settle only for tokens already delivered.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Python SDK -->
+      <section id="python-sdk" class="docs-section">
+        <h2 class="section-title">4. Streaming Inference (Python)</h2>
+        <p class="section-text">
+          No signups or centralized API keys needed. You only supply a wallet private key that authorizes the micro-payment ceiling for the request.
+        </p>
+
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">stream_inference.py</span>
+            <button class="copy-btn" onclick="copySnippet('python-code')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="python-code"><code>import asyncio
+from nexilo import AsyncNexiloClient
+
+async def main():
+    # Initialize client with your Web3 wallet
+    client = AsyncNexiloClient(
+        wallet_private_key="0x...", # Signs x402 spending ceiling
+        max_ceiling_usdt=2.00       # Hard safety limit per request
+    )
+
+    # Stream output from the decentralized GPU network
+    stream = await client.chat.completions.create(
+        model="llama-3.3-70b-instruct",
+        messages=[
+            {"role": "system", "content": "You are a helpful coding assistant."},
+            {"role": "user", "content": "Write a fast Python quicksort."}
+        ],
+        stream=True
+    )
+
+    async for chunk in stream:
+        if chunk.delta.content:
+            print(chunk.delta.content, end="", flush=True)
+
+    # Automatically prints on-chain settlement receipt
+    print(f"\n\nSettlement: {stream.settlement_tokens} tokens @ {stream.usdt_settled} USDT (All Networks)")
+
+if __name__ == "__main__":
+    asyncio.run(main())</code></pre>
+        </div>
+      </section>
+
+      <!-- Section: TypeScript SDK -->
+      <section id="typescript-sdk" class="docs-section">
+        <h2 class="section-title">5. Streaming Inference (TypeScript)</h2>
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">index.ts</span>
+            <button class="copy-btn" onclick="copySnippet('ts-code')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="ts-code"><code>import { NexiloClient } from '@nexilo/sdk';
+
+const client = new NexiloClient({
+  privateKey: process.env.WALLET_PRIVATE_KEY!,
+  maxCeilingUSDT: 2.00,
+});
+
+async function run() {
+  const stream = await client.chat.stream({
+    model: 'deepseek-v3-671b',
+    messages: [{ role: 'user', content: 'Explain decentralized AI routing' }],
+  });
+
+  for await (const chunk of stream) {
+    process.stdout.write(chunk.content);
+  }
+
+  const receipt = await stream.getReceipt();
+  console.log(`\nVerified Tx (Multi-Chain): ${receipt.transactionHash}`);
+}
+
+run();</code></pre>
+        </div>
+      </section>
+
+      <!-- Section: Raw HTTP / cURL -->
+      <section id="curl-example" class="docs-section">
+        <h2 class="section-title">6. Raw HTTP / cURL</h2>
+        <p class="section-text">
+          Prefer to stay in your shell? The x402 flow is just two HTTP round-trips, so it works out of the box with any language. Sign the ceiling with your key-deriving helper, replay the signature in the response header, and read the stream.
+        </p>
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">curl.sh</span>
+            <button class="copy-btn" onclick="copySnippet('curl-code')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="curl-code"><code># 1. Fire the request — server replies 402 with the price
+CEILING=$(nexilo sign-ceiling --usdt 0.50 --wallet 0x...)
+
+# 2. Replay the signature and stream tokens back
+curl -N \
+  -H "X-Payment-Signature: $CEILING" \
+  -H "Content-Type: application/json" \
+  https://api.nexilo.network/v1/chat/completions \
+  -d '{"model":"llama-3.3-70b","stream":true,"messages":[{"role":"user","content":"Hi"}]}'</code></pre>
+        </div>
+        <p class="section-text">
+          The <code>-N</code> flag disables buffering so you see tokens as they stream. When the response ends, the SDK auto-verifies the on-chain receipt and refunds the unused portion of your ceiling.
+        </p>
+      </section>
+
+      <!-- Section: The x402 Specification -->
+      <section id="x402-protocol" class="docs-section">
+        <h2 class="section-title">The x402 Protocol Specification</h2>
+        <p class="section-text">
+          Nexilo standardizes on HTTP 402 Payment Required status headers:
+        </p>
+        <div class="info-callout">
+          <div class="callout-icon"></div>
+          <div class="callout-content">
+            <strong>How the 4 hops work:</strong>
+            <ol class="docs-ordered-list">
+              <li><strong>Hop 1:</strong> Client initiates request; Orchestrator replies with HTTP 402 challenge specifying token unit price and session channel.</li>
+              <li><strong>Hop 2:</strong> Client signs an EIP-712 spending ceiling authorization up to $2 USDT.</li>
+              <li><strong>Hop 3:</strong> Orchestrator selects lowest-latency GPU node and streams response tokens back over WebSocket.</li>
+              <li><strong>Hop 4:</strong> Stream terminates. Orchestrator submits signed delta proof to multi-chain contract; 90% goes directly to node operator.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Multi-Chain Settlement -->
+      <section id="arc-settlement" class="docs-section">
+        <h2 class="section-title">Multi-Chain Settlement</h2>
+        <p class="section-text">
+          Nexilo settles every inference stream atomically. The orchestrator batches token-delta proofs and posts them to whichever chain your operator set their payout wallet on — Ethereum, Arbitrum, Base, or any x402-compliant settlement layer. You never have to wrap, bridge, or worry about gas to call the API.
+        </p>
+        <ul class="section-list">
+          <li><strong>Prove &amp; verify:</strong> each stream chunk is SHA-256 chained; the operator publishes the final digest on-chain.</li>
+          <li><strong>Refund path:</strong> unused ceiling is returned to the payer the same block.</li>
+          <li><strong>Operator yield:</strong> 90% of the token fee streams straight to the node operator's self-custodial wallet.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Orchestrator Mesh -->
+      <section id="orchestration" class="docs-section">
+        <h2 class="section-title">Orchestrator Mesh</h2>
+        <p class="section-text">
+          A lightweight control plane picks the optimal node for each request in under 200 ms. Routing scores nodes by three signals: latency to your IP, current load on that exact model, and the operator's on-chain reputation. If a node drops mid-stream, the orchestrator re-hops the remaining prompt to a second node and settles only what was actually delivered.
+        </p>
+        <div class="info-callout">
+          <div class="callout-icon"></div>
+          <div class="callout-content">
+            <strong>Why it feels instant:</strong> the mesh pre-warms hot models across all regions, so a cold start happens at most once per node, not per request.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Node Hardware Requirements -->
+      <section id="node-specs" class="docs-section">
+        <h2 class="section-title">Hardware Requirements</h2>
+        <p class="section-text">
+          To join the operator mesh, a node must meet the following minimums. Anything higher just earns more per token.
+        </p>
+        <div class="models-table-wrapper">
+          <table class="models-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Minimum</th>
+                <th>Recommended</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GPU (per node)</td>
+                <td>24 GB VRAM (RTX 3090/4090)</td>
+                <td>80 GB (A100 / H100)</td>
+              </tr>
+              <tr>
+                <td>System RAM</td>
+                <td>64 GB</td>
+                <td>128 GB</td>
+              </tr>
+              <tr>
+                <td>CPU</td>
+                <td>8 cores</td>
+                <td>16+ cores</td>
+              </tr>
+              <tr>
+                <td>Uplink</td>
+                <td>500 Mbps</td>
+                <td>1 Gbps+ symmetric</td>
+              </tr>
+              <tr>
+                <td>Storage</td>
+                <td>500 GB NVMe</td>
+                <td>2 TB NVMe</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section: Running the Daemon -->
+      <section id="daemon-setup" class="docs-section">
+        <h2 class="section-title">Running the Daemon</h2>
+        <p class="section-text">
+          The operator is a single Go binary that manages model caching, serving, and settlement for you:
+        </p>
+        <div class="terminal-container">
+          <div class="terminal-bar">
+            <span class="terminal-title">operator.sh</span>
+            <button class="copy-btn" onclick="copySnippet('daemon-code')">Copy</button>
+          </div>
+          <pre class="terminal-content code-block" id="daemon-code"><code># 1. Install the node daemon
+curl -sSL https://node.nexilo.network/install.sh | sh
+
+# 2. Point it at your payout wallet and enable it
+nexilo-operator start \
+  --payout-wallet 0xYourOperatorWallet \
+  --models llama-3.3-70b,deepseek-v3-671b \
+  --region eu-central-1
+
+# 3. Watch earnings roll in
+nexilo-operator tail --settlements</code></pre>
+        </div>
+        <p class="section-text">
+          The daemon self-benchmarks on first boot and only advertises models it can serve within its SLO.
+        </p>
+      </section>
+
+      <!-- Section: 90% Payout Mechanics -->
+      <section id="payout-rules" class="docs-section">
+        <h2 class="section-title">90% Payout Mechanics</h2>
+        <p class="section-text">
+          Of every USDT micro-fee, 90% is routed directly to the operator. The remaining 10% funds the network: 6% is held in the slashing pool (security), 3% pays orchestrator routing, and 1% is minted into the liquidity pool that guarantees instant operator exits.
+        </p>
+        <div class="info-callout">
+          <div class="callout-icon"></div>
+          <div class="callout-content">
+            <strong>Slashing:</strong> a node that serves a corrupted stream (digest mismatch) has its 10% security bond slashed to the payer. One strike.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Supported Models -->
+      <section id="models-table" class="docs-section">
+        <h2 class="section-title">Supported Models & Pricing Tiers</h2>
+        <div class="models-table-wrapper">
+          <table class="models-table">
+            <thead>
+              <tr>
+                <th>Model Identifier</th>
+                <th>Context Length</th>
+                <th>Price / 1M Tokens</th>
+                <th>Recommended GPU</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>llama-3.3-70b-instruct</code></td>
+                <td>128,000</td>
+                <td class="text-cyan">$0.80 USDT</td>
+                <td>2x RTX 4090 / 1x A100</td>
+              </tr>
+              <tr>
+                <td><code>deepseek-v3-671b</code></td>
+                <td>64,000</td>
+                <td class="text-cyan">$0.40 USDT</td>
+                <td>8x A100 / 8x H100</td>
+              </tr>
+              <tr>
+                <td><code>qwen-2.5-72b-coder</code></td>
+                <td>128,000</td>
+                <td class="text-cyan">$0.60 USDT</td>
+                <td>2x RTX 4090 / 1x A100</td>
+              </tr>
+              <tr>
+                <td><code>mistral-large-2-123b</code></td>
+                <td>128,000</td>
+                <td class="text-cyan">$1.00 USDT</td>
+                <td>4x A100 / 2x H100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Nexilo Network. Decentralized AI inference for everyone.</p>
+        <div class="social-share-preview-info">
+          <span class="badge-status"><span class="pulse-dot"></span> Network Live &bull; 1,248 Nodes Online</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
