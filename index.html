@@ -838,10 +838,10 @@
           <div class="control-group">
             <label for="model-select">Select Model:</label>
             <select id="model-select" class="select-input">
-              <option value="llama3">Llama 3.3 70B Instruct ($0.0008 / 1K tokens)</option>
-              <option value="deepseek">DeepSeek-V3 671B MoE ($0.0004 / 1K tokens)</option>
-              <option value="qwen">Qwen 2.5 72B Coder ($0.0006 / 1K tokens)</option>
-              <option value="mistral">Mistral Large 2 ($0.0010 / 1K tokens)</option>
+              <option value="gpt6">GPT-6 Astra ($0.0012 / 1K tokens)</option>
+              <option value="claude5">Claude Opus 5.5 ($0.0010 / 1K tokens)</option>
+              <option value="deepseek4">DeepSeek-V4 Pro ($0.0005 / 1K tokens)</option>
+              <option value="gemini3">Gemini 3.8 Flash ($0.0004 / 1K tokens)</option>
             </select>
           </div>
           <div class="telemetry-pill">
@@ -984,32 +984,32 @@ Click "Generate" to stream tokens directly from a decentralized GPU node through
             </thead>
             <tbody>
               <tr>
-                <td><strong>Llama 3.3 70B Instruct</strong><br><span class="muted">Meta AI</span></td>
+                <td><strong>GPT-6 Astra</strong><br><span class="muted">OpenAI</span></td>
                 <td>128K</td>
-                <td class="text-cyan">$0.80 USDT</td>
-                <td>482 nodes</td>
-                <td><button class="table-btn" onclick="testModelInPlayground('llama3')">Test</button></td>
+                <td class="text-cyan">$1.20 USDT</td>
+                <td>512 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('gpt6')">Test</button></td>
               </tr>
               <tr>
-                <td><strong>DeepSeek-V3 671B MoE</strong><br><span class="muted">DeepSeek AI</span></td>
-                <td>64K</td>
-                <td class="text-cyan">$0.40 USDT</td>
-                <td>329 nodes</td>
-                <td><button class="table-btn" onclick="testModelInPlayground('deepseek')">Test</button></td>
-              </tr>
-              <tr>
-                <td><strong>Qwen 2.5 72B Coder</strong><br><span class="muted">Alibaba Cloud</span></td>
-                <td>128K</td>
-                <td class="text-cyan">$0.60 USDT</td>
-                <td>274 nodes</td>
-                <td><button class="table-btn" onclick="testModelInPlayground('qwen')">Test</button></td>
-              </tr>
-              <tr>
-                <td><strong>Mistral Large 2 123B</strong><br><span class="muted">Mistral AI</span></td>
-                <td>128K</td>
+                <td><strong>Claude Opus 5.5</strong><br><span class="muted">Anthropic</span></td>
+                <td>200K</td>
                 <td class="text-cyan">$1.00 USDT</td>
-                <td>163 nodes</td>
-                <td><button class="table-btn" onclick="testModelInPlayground('mistral')">Test</button></td>
+                <td>345 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('claude5')">Test</button></td>
+              </tr>
+              <tr>
+                <td><strong>DeepSeek-V4 Pro</strong><br><span class="muted">DeepSeek AI</span></td>
+                <td>128K</td>
+                <td class="text-cyan">$0.50 USDT</td>
+                <td>412 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('deepseek4')">Test</button></td>
+              </tr>
+              <tr>
+                <td><strong>Gemini 3.8 Flash</strong><br><span class="muted">Google DeepMind</span></td>
+                <td>1M</td>
+                <td class="text-cyan">$0.40 USDT</td>
+                <td>289 nodes</td>
+                <td><button class="table-btn" onclick="testModelInPlayground('gemini3')">Test</button></td>
               </tr>
             </tbody>
           </table>

@@ -137,12 +137,12 @@ function testModelInPlayground(modelKey) {
 async function fetchAIResponse(prompt, modelKey) {
   const apiKey = 'oao-store-hNwhQeNaQuS7MOUjGfVukkHGctNsyXBI';
   const apiModelMapping = {
-    llama3: 'gemini-3.5-flash',
-    deepseek: 'deepseek-v4-flash',
-    qwen: 'gpt-5.6-luna',
-    mistral: 'claude-fable-5'
+    gpt6: 'gpt-6-astra',
+    claude5: 'claude-opus-5.5',
+    deepseek4: 'deepseek-v4-pro',
+    gemini3: 'gemini-3.8-flash'
   };
-  const actualModel = apiModelMapping[modelKey] || 'auto-oao-jailbreak';
+  const actualModel = apiModelMapping[modelKey] || 'gpt-6-astra';
   
   try {
     const res = await fetch('https://oao.clipora.buzz/v1/chat/completions', {
@@ -171,7 +171,7 @@ async function runPlaygroundStream() {
  if (streamTimer) clearInterval(streamTimer);
 
  const modelSelect = document.getElementById('model-select');
- const modelKey = modelSelect ? modelSelect.value : 'llama3';
+ const modelKey = modelSelect ? modelSelect.value : 'gpt6';
  const promptInput = document.getElementById('playground-prompt-input');
  const promptText = promptInput ? promptInput.value.trim() : "Explain decentralized AI";
 
@@ -417,7 +417,7 @@ async function runStudioStream() {
 
  const display = document.getElementById('studio-chat-display');
  const modelSelect = document.getElementById('studio-model');
- const modelKey = modelSelect ? modelSelect.value : 'llama3';
+ const modelKey = modelSelect ? modelSelect.value : 'gpt6';
 
  // Append user message
  const userMsg = document.createElement('div');
