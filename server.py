@@ -9,6 +9,10 @@ API_KEY = "oao-store-hNwhQeNaQuS7MOUjGfVukkHGctNsyXBI"
 TARGET_URL = "https://oao.clipora.buzz/v1/chat/completions"
 
 class ProxyHandler(http.server.SimpleHTTPRequestHandler):
+    extensions_map = http.server.SimpleHTTPRequestHandler.extensions_map.copy()
+    extensions_map['.css'] = 'text/css'
+    extensions_map['.js'] = 'application/javascript'
+    
     def do_POST(self):
         if self.path == '/api/chat':
             content_length = int(self.headers['Content-Length'])

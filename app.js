@@ -115,14 +115,14 @@ function triggerFlowSimulation() {
 // Interactive Playground Simulation
 let streamTimer = null;
 const modelResponses = {
- llama3: "Nexilo's decentralized inference protocol utilizes HTTP 402 Payment Required status headers to negotiate streaming quotas in USDT. Your local client signs an off-chain spending allowance. As output tokens stream over the WebSocket channel from independent GPU nodes, micro-settlement commitments are verified cryptographically. Once complete, an atomic multi-party batch settlement executes on any chain, routing 90% directly to the node operator and 10% to network pool reserves.",
- deepseek: "DeepSeek-V3 on Nexilo operates across distributed 80GB VRAM clusters. Decentralized routing ensures your prompt never hits centralized gatekeepers, logging proxies, or surveillance databases. Latency is optimized through dynamic latency-weighted ping triangulation across verified node operators worldwide.",
- qwen: "```python\n# Nexilo x402 Direct Streaming Client\nimport nexilo\n\nasync with nexilo.AsyncClient(ceiling_usdt=2.0) as client:\n  stream = await client.chat.stream('qwen-2.5-72b-coder', prompt='fibonacci')\n  async for chunk in stream:\n    print(chunk.text, end='')\n```\nStreaming confirmed. Settlement receipt generated on-chain.",
- mistral: "Mistral Large 2 delivers high-precision multilingual reasoning. With zero proprietary lock-in, operators can spin up node daemons in under 3 minutes using Docker or bare-metal Linux drivers."
+ gpt6: "Nexilo's decentralized inference protocol utilizes HTTP 402 Payment Required status headers to negotiate streaming quotas in USDT. Your local client signs an off-chain spending allowance. As output tokens stream over the WebSocket channel from independent GPU nodes, micro-settlement commitments are verified cryptographically.",
+ claude5: "Claude Opus 5.5 on Nexilo operates across distributed 80GB VRAM clusters. Decentralized routing ensures your prompt never hits centralized gatekeepers, logging proxies, or surveillance databases.",
+ deepseek4: "```python\n# Nexilo x402 Direct Streaming Client\nimport nexilo\n\nasync with nexilo.AsyncClient(ceiling_usdt=2.0) as client:\n  stream = await client.chat.stream('deepseek-v4-pro', prompt='fibonacci')\n  async for chunk in stream:\n    print(chunk.text, end='')\n```\nStreaming confirmed. Settlement receipt generated on-chain.",
+ gemini3: "Gemini 3.8 Flash delivers high-precision multilingual reasoning. With zero proprietary lock-in, operators can spin up node daemons in under 3 minutes using Docker or bare-metal Linux drivers."
 };
 
-function setPrompt(text) {
- const input = document.getElementById('playground-prompt-input');
+function setStudioPrompt(text) {
+ const input = document.getElementById('studio-prompt-input');
  if (input) input.value = text;
 }
 
@@ -398,10 +398,15 @@ function clearStudioChat() {
 }
 
 function copyStudioOutput() {
- const out = document.getElementById('studio-output-text');
- if (out) {
-  navigator.clipboard.writeText(out.innerText.trim()).then(() => {
+ const display = document.getElementById('studio-chat-display');
+ if (!display) return;
+ const assistantMessages = display.querySelectorAll('.chat-message.assistant .msg-body');
+ if (assistantMessages.length > 0) {
+  const lastMessage = assistantMessages[assistantMessages.length - 1];
+  navigator.clipboard.writeText(lastMessage.innerText.trim()).then(() => {
    alert("Assistant response copied to clipboard!");
+  }).catch(err => {
+   console.error("Could not copy text: ", err);
   });
  }
 }
