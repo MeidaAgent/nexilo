@@ -143,9 +143,13 @@ async function fetchAIResponse(prompt, modelKey) {
   };
   const actualModel = apiModelMapping[modelKey] || 'gpt-6-astra';
   
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  
   try {
     const res = await fetch('/api/chat', {
       method: 'POST',
+      signal: controller.signal,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -154,6 +158,7 @@ async function fetchAIResponse(prompt, modelKey) {
         messages: [{ role: 'user', content: prompt }]
       })
     });
+    clearTimeout(timeoutId);
     const data = await res.json();
     if (data && data.choices && data.choices.length > 0) {
       return data.choices[0].message.content;
@@ -411,12 +416,27 @@ function copyStudioOutput() {
  }
 }
 
+let isStudioStreaming = false;
+
 async function runStudioStream() {
+ if (isStudioStreaming) return;
  if (studioStreamTimer) clearInterval(studioStreamTimer);
 
  const promptInput = document.getElementById('studio-prompt-input');
+ const runBtn = document.getElementById('btn-studio-run');
  const promptText = promptInput ? promptInput.value.trim() : "Explain decentralized AI";
  if (!promptText) return;
+
+ isStudioStreaming = true;
+ if (promptInput) {
+   promptInput.disabled = true;
+   promptInput.style.opacity = '0.5';
+ }
+ if (runBtn) {
+   runBtn.disabled = true;
+   runBtn.style.opacity = '0.5';
+   runBtn.style.cursor = 'not-allowed';
+ }
 
  const display = document.getElementById('studio-chat-display');
  const modelSelect = document.getElementById('studio-model');
@@ -463,6 +483,20 @@ async function runStudioStream() {
    responseBody.innerText = fullResponse;
    clearInterval(studioStreamTimer);
    studioStreamTimer = null;
+   isStudioStreaming = false;
+   
+   const pInput = document.getElementById('studio-prompt-input');
+   const rBtn = document.getElementById('btn-studio-run');
+   if (pInput) {
+     pInput.disabled = false;
+     pInput.style.opacity = '1';
+     pInput.value = '';
+   }
+   if (rBtn) {
+     rBtn.disabled = false;
+     rBtn.style.opacity = '1';
+     rBtn.style.cursor = 'pointer';
+   }
 
    const elapsed = Math.max(0.5, (Date.now() - startTime) / 1000);
    const tokPerSec = Math.round(tokenCount / elapsed);
